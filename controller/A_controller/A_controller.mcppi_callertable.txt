@@ -1,0 +1,15 @@
+Main
+	__CC2DW
+	Setup
+		Soft_UART_Init
+			Get_Fosc_kHz
+			Mul_32x32_U
+			Div_32x32_S
+				SDIV3232L
+				COMFREM
+	Soft_UART_Read
+		Delay_Cyc
+	Move
+		Run_Motor
+			Soft_UART_Write
+				Delay_Cyc

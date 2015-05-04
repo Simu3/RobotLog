@@ -1,0 +1,16 @@
+main
+	set_up
+		ADC_Init
+		UART1_Init
+	read
+		ADC_Read
+			ADC_Init
+			ADC_Get_Sample
+				Delay_22us
+	print
+		UART1_Write
+		printa
+			UART1_Write
+			Div_16x16_S
+				Div_16x16_S_L
+			dec2ascii

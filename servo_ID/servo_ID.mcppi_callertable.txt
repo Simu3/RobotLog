@@ -1,0 +1,9 @@
+main
+	SetUp
+		UART1_Init
+	SetID
+		ParityCheck
+		UART1_Write
+	SetPosition
+		ParityCheck
+		UART1_Write

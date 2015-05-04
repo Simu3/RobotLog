@@ -1,0 +1,7 @@
+Main
+	Setup
+		ADC_Init
+	ADC_Read
+		ADC_Init
+		ADC_Get_Sample
+			Delay_22us

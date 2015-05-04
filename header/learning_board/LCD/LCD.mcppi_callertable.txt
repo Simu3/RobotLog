@@ -1,0 +1,18 @@
+Main
+	Setup
+	Lcd_Init
+		Delay_5500us
+		Delay_1us
+	Lcd_Cmd
+		Delay_1us
+		Delay_5500us
+		Delay_50us
+	Button
+		Delay_500us
+	Lcd_Chr
+		Lcd_Cmd
+			Delay_1us
+			Delay_5500us
+			Delay_50us
+	Dec2Ascii
+	abs

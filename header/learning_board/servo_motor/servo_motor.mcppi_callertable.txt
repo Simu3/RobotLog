@@ -1,0 +1,12 @@
+main
+	setup
+		UART1_Init
+	set_id
+		parity_check
+		UART1_Write
+	set_parameter
+		parity_check
+		UART1_Write
+	set_position
+		parity_check
+		UART1_Write

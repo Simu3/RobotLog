@@ -1,0 +1,12 @@
+Main
+	Setup
+	DAC_Init
+	ADC_Init
+	ADC_Read
+		ADC_Init
+		ADC_Get_Sample
+			Delay_22us
+	map
+		Mul_16x16_U
+		Div_16x16_S
+			Div_16x16_S_L

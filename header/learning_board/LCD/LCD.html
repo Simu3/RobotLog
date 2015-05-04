@@ -1,0 +1,138 @@
+Version:0.9
+StartHTML:0000000105
+EndHTML:0000022042
+StartFragment:0000001478
+EndFragment:0000022026
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mikroIDE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+body { font-family: Courier New; font-size: 14pt; }
+.cpp1-activecomment { color: #316AC5; font-style: italic; text-decoration: underline; }
+.cpp1-assembler { color: #FF0000; }
+.cpp1-binary { color: #0000FF; }
+.cpp1-character { color: #FEA601; }
+.cpp1-comment { color: #008040; }
+.cpp1-float { color: #800000; }
+.cpp1-hexadecimal { color: #FF0000; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #FEA601; }
+.cpp1-imagelink { color: #800080; font-style: italic; text-decoration: underline; }
+.cpp1-number { color: #008000; }
+.cpp1-octal { color: #008000; }
+.cpp1-preprocessor { color: #800040; font-weight: bold; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { color: #FFFFFF; }
+.cpp1-string { color: #FEA601; }
+.cpp1-symbol { color: #000000; }
+.cpp1-weblink { color: #316AC5; font-style: italic; text-decoration: underline; }
+-->
+</style>
+</head>
+<body>
+<!--StartFragment--><pre><code><span class="cpp1-preprocessor">#define&nbsp;UP&nbsp;&nbsp;&nbsp;&nbsp;4
+#define&nbsp;DOWN&nbsp;&nbsp;5
+#define&nbsp;RESET&nbsp;6
+
+</span><span class="cpp1-comment">//&nbsp;LCD&nbsp;module&nbsp;connections
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_RS</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB7_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_EN</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB6_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D4</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB5_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D5</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB4_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D6</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB3_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D7</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB2_bit;
+
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_RS_Direction</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TRISB7_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_EN_Direction</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TRISB6_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D4_Direction</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TRISB5_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D5_Direction</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TRISB4_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D6_Direction</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TRISB3_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LCD_D7_Direction</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TRISB2_bit;
+</span><span class="cpp1-comment">//&nbsp;End&nbsp;LCD&nbsp;module&nbsp;connections
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Setup();
+</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Dec2Ascii(</span><span class="cpp1-reservedword">char</span><span class="cpp1-symbol">);
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Main()
+{
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">Setup();
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Init();
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Cmd(_LCD_CLEAR);
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Cmd(_LCD_CURSOR_OFF);
+</span><span class="cpp1-space">&nbsp;&nbsp;
+&nbsp;&nbsp;</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(Button(&amp;PORTC,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">UP,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">80</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">++;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">else</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(Button(&amp;PORTC,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">DOWN,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">80</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">--;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">else</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(Button(&amp;PORTC,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RESET,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">80</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">9</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">9</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">else</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">-</span><span class="cpp1-number">9</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">-</span><span class="cpp1-number">9</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(count</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">&gt;=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Chr(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'+'</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Chr(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">2</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Dec2Ascii(count));
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Chr(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'-'</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">Lcd_Chr(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">2</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Dec2Ascii(abs(count)));
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">}
+}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Setup()
+{
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">OSCCON</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x70</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELA</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELB</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELD</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELE</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;
+&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISA</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISB</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISC</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x70</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISD</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISE</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTA</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTB</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTC</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTD</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTE</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-hexadecimal">0x00</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;
+&nbsp;&nbsp;</span><span class="cpp1-identifier">delay_ms(</span><span class="cpp1-number">10</span><span class="cpp1-symbol">);
+}
+
+</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Dec2Ascii(</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">dec)
+{
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">switch</span><span class="cpp1-symbol">(dec){
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'0'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'1'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">2</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'2'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">3</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'3'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">4</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'4'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">5</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'5'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">6</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'6'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">7</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'7'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'8'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">case</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">9</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'9'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">default</span><span class="cpp1-symbol">:</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-character">'*'</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">}
+}
+</span></code></pre><!--EndFragment--></body>
+</html>

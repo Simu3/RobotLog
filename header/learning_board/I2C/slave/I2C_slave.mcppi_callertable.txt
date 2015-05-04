@@ -1,0 +1,6 @@
+Main
+	__CC2DW
+	Setup
+	I2C_Slave_Init
+	I2C_Receive_Check
+Interrupt
